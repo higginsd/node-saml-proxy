@@ -14,7 +14,9 @@ config.SamlStrategy=new SamlStrategy(
     path: config.passport.saml.path,
     entryPoint: config.passport.saml.entryPoint,
     issuer: config.passport.saml.issuer,
-    callbackUrl: 'http://localhost:3000/login/callback'
+    callbackUrl: 'http://localhost:3000/login/callback',
+		cert: config.passport.saml.cert,
+		validateInResponseTo: config.passport.saml.validateInResponseTo
 
   },
   function(profile, done) {
