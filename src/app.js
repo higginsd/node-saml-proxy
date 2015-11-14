@@ -14,6 +14,13 @@ var express = require('express'),
 require('./config/passport')(passport, config);
 
 var proxy =  httpProxy.createProxyServer({});
+proxy.on('proxyReq', function(proxyReq, req, res, options) {
+if(req.user.nameID){
+  proxyReq.setHeader('usernmae', req.user.nameID );
+}
+
+});
+
 var app = express();
 
 //app.configure(function() {

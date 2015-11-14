@@ -24,7 +24,8 @@ config.SamlStrategy=new SamlStrategy(
       email : profile.email,
       displayName : profile.cn,
       firstName : profile.givenName,
-        lastName : profile.sn
+      lastName : profile.sn,
+			nameID : profile.nameID
     });
   });
 	passport.use(config.SamlStrategy);
