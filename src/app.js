@@ -13,13 +13,7 @@ var express = require('express'),
 
 require('./config/passport')(passport, config);
 
-var proxy =  httpProxy.createProxyServer({});
-proxy.on('proxyReq', function(proxyReq, req, res, options) {
-if(req.user.nameID){
-  proxyReq.setHeader('usernmae', req.user.nameID );
-}
-
-});
+var proxy =  require('./config/proxy')(httpProxy);
 
 var app = express();
 
@@ -47,5 +41,5 @@ console.log(config);
 console.log(env);
 
 http.createServer(app).listen(config.app.port, function () {
-    console.log("Proxy listening on port " + app.get('port'));
+    console.log("Proxy listening on port " + config.app.port);
 });
