@@ -5,7 +5,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 app.get("/deep",function(req,res){
-    res.send('deep');
+    res.send(req.get("usernmae"));
 });
 
 var server = app.listen(8080, function () {
