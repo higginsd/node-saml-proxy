@@ -1,0 +1,40 @@
+{
+  "name": "proxy-passport-saml",
+  "version": "0.0.1",
+  "description": "Reverse proxy with saml authentication",
+  "author": {
+    "name": "Derek Higgins",
+    "email": "derek.higgins@gmail.com",
+    "url": "http://www.derekhiggins.com"
+  },
+  "keywords": [
+    "saml",
+    "sso",
+    "proxy",
+    "reverse proxy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": ""
+  },
+  "dependencies": {
+    "express": "*",
+    "passport": "*",
+    "passport-saml": "*",
+    "jade":"*",
+    "http-proxy":"*",
+    "connect":"*",
+    "body-parser":"*",
+    "cookie-parser":"*",
+    "express-session":"*",
+    "method-override":"*",
+    "morgan":"*"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  }
+}

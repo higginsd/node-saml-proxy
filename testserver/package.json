@@ -1,0 +1,27 @@
+{
+  "name": "proxy-passport-saml",
+  "version": "0.0.1",
+  "description": "test webserver",
+  "author": {
+    "name": "Derek Higgins",
+    "email": "derek.higgins@gmail.com",
+    "url": "http://www.derekhiggins.com"
+  },
+  "keywords": [
+    "testserver"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": ""
+  },
+  "dependencies": {
+    "express": "*"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  }
+}
