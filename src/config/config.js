@@ -1,7 +1,7 @@
 module.exports = {
 	development : {
 		app : {
-			name : 'Passport SAML strategy example',
+			name : 'SAML reverse proxy',
 			port : process.env.PORT || 3000
 		},
 		proxy:{

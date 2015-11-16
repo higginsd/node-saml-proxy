@@ -27,13 +27,6 @@ var router=express.Router();
   }
 	);
 
-/*	router.get("/signup", function (req, res) {
-    //res.send("hello");
-    //res.send(config.passport.strategy.getCallbackUrl());
-
-		//res.render("signup");
-	});*/
-
 	router.get("/profile", function(req, res) {
     	if(req.isAuthenticated()){
 			res.render("profile",
