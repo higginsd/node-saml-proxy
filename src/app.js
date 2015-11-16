@@ -30,7 +30,7 @@ app.use(passport.session());
 var routes = require('./config/routes')(config,passport,express);
 app.use("",routes);
 app.use(function(req, res) {
-proxy.web(req,res,{target:"http://localhost:8080"});
+proxy.web(req,res,{target:config.proxy.target});
 });
 app.use(express.static(__dirname + 'public'));
 //});

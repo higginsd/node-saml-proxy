@@ -18,11 +18,9 @@ RUN npm install node-inspector -g --silent
 
 RUN mkdir /tmp/app
 
-COPY ./src /tmp/app
-
+COPY ./src/. /tmp/app
 WORKDIR /tmp/app
-
 RUN npm install
 
 EXPOSE 3000
-CMD["node","/src/app.js"]
+CMD ["node","/tmp/app/app.js"]

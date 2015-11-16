@@ -4,6 +4,9 @@ module.exports = {
 			name : 'Passport SAML strategy example',
 			port : process.env.PORT || 3000
 		},
+		proxy:{
+			target : "http://localhost:3000"
+		},
 		passport: {
 			strategy : 'saml',
 			saml : {
