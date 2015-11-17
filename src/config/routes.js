@@ -18,25 +18,16 @@ var router=express.Router();
 				failureFlash: true
 			}),
 		function(req, res) {
-      console.log(req.body.RelayState);
       if(req.body.RelayState){
+				  console.log(req.body.RelayState);
         res.redirect(req.body.RelayState);
       }else{
+
 			res.redirect('/');
 		}
   }
 	);
 
-	router.get("/profile", function(req, res) {
-    	if(req.isAuthenticated()){
-			res.render("profile",
-				{
-					user : req.user
-				});
-   		} else {
-    	    res.redirect("/login");
-	    }
-	});
 router.get("/metadata",function(req,res){
  res.render("metadata",{metadata:config.SamlStrategy.generateServiceProviderMetadata()});
 

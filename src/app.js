@@ -8,6 +8,7 @@ var express = require('express'),
   session=require('express-session'),
   logger=require('morgan'),
   methodOverride=require('method-override');
+//RedisStore = require('connect-redis')(session);
   var env = process.env.NODE_ENV || 'development',
     config = require('./config/config')[env];
 
@@ -21,9 +22,13 @@ app.set('views', __dirname+'/app/views');
 app.set('view engine', 'jade');
 app.use(logger('combined'));
 app.use(cookieParser());
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+
 app.use(methodOverride());
-app.use(session({secret: 'qwertyuiopasdfghjlk'}));
+app.use(require('express-session')(config.session));
 app.use(passport.initialize());
 app.use(passport.session());
 var routes = require('./config/routes')(config,passport,express);

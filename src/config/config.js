@@ -1,11 +1,17 @@
 module.exports = {
+
 	development : {
 		app : {
 			name : 'SAML reverse proxy',
 			port : process.env.PORT || 3000
 		},
 		proxy:{
-			target : "http://localhost:3000"
+			target : "http://localhost:8080"
+		},
+		session:{
+			secret: 'dafasdfasfiajnfkjnk',
+			resave:false,
+			saveUninitialized:false
 		},
 		passport: {
 			strategy : 'saml',

@@ -4,7 +4,8 @@ RUN yum install -y \
     wget \
     tar \
     bzip2 \
-    git
+    git \
+    redis
 
 COPY ./nodejs-install.sh /tmp/
 
@@ -22,5 +23,6 @@ COPY ./src/. /tmp/app
 WORKDIR /tmp/app
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 3000 6379
+CMD [ "redis-server" ]
 CMD ["node","/tmp/app/app.js"]
