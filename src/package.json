@@ -33,7 +33,8 @@
     "express-session":"*",
     "method-override":"*",
     "morgan":"*",
-    "connect-redis":"*"
+    "connect-redis":"*",
+    "bunyan":"*"
   },
   "engines": {
     "node": ">= 0.10.0"

@@ -37,7 +37,6 @@ router.get("/metadata",function(req,res){
 	router.get('/logout', function(req, res) {
     console.log("logging out");
 		req.logout();
-		// TODO: invalidate session on IP
 		res.redirect('/');
 	});
 
