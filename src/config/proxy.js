@@ -1,4 +1,4 @@
-module.exports = function(httpProxy){
+module.exports = function(httpProxy,log){
 var proxy= httpProxy.createProxyServer({});
 
 
@@ -17,6 +17,7 @@ proxy.on('error', function (err, req, res) {
   res.writeHead(500, {
     'Content-Type': 'text/plain'
   });
+  log.error("something went wrong")
   res.end('Something went wrong.');
 });
 

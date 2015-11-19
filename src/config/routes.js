@@ -1,4 +1,4 @@
-module.exports = function(config, passport,express) {
+module.exports = function(config, passport,express,log) {
 
 var router=express.Router();
 
