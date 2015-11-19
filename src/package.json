@@ -32,7 +32,8 @@
     "cookie-parser":"*",
     "express-session":"*",
     "method-override":"*",
-    "morgan":"*"
+    "morgan":"*",
+    "connect-redis":"*"
   },
   "engines": {
     "node": ">= 0.10.0"
