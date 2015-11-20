@@ -1,6 +1,6 @@
 {
   "name": "proxy-passport-saml",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Reverse proxy with saml authentication",
   "author": {
     "name": "Derek Higgins",
@@ -22,12 +22,12 @@
     "test": ""
   },
   "dependencies": {
+    "nodemon": "*",
     "express": "*",
     "passport": "*",
     "passport-saml": "*",
     "jade":"*",
     "http-proxy":"*",
-    "connect":"*",
     "body-parser":"*",
     "cookie-parser":"*",
     "express-session":"*",

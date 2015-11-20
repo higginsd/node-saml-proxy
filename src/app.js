@@ -5,7 +5,7 @@ var express = require('express'),
   httpProxy = require('http-proxy'),
   bodyParser=require('body-parser'),
   cookieParser=require('cookie-parser'),
-  session=require('express-session'),
+  //session=require('express-session'),
   logger=require('morgan'),
   methodOverride=require('method-override'),
   log=require('./config/logger');
@@ -38,11 +38,11 @@ app.use(function(req, res) {
   log.info(req);
 proxy.web(req,res,{target:config.proxy.target});
 });
-app.use(express.static(__dirname + 'public'));
+//app.use(express.static(__dirname + '/public'));
 
 
 
 http.createServer(app).listen(config.app.port, function () {
   log.info("Proxy listening on port " + config.app.port);
-    console.log("Proxy listening on port " + config.app.port);
+    //console.log("Proxy listening on port " + config.app.port);
 });

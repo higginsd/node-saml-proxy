@@ -7,14 +7,14 @@ var router=express.Router();
 		passport.authenticate(config.passport.strategy,
 		{
 			successRedirect : "/",
-			failureRedirect : "/login",
+			failureRedirect : "/login/fail",
 		})
 	);
 
 	router.post('/login/callback',
 		passport.authenticate(config.passport.strategy,
 			{
-				failureRedirect: '/',
+				failureRedirect: '/login/fail',
 				failureFlash: true
 			}),
 		function(req, res) {
@@ -28,7 +28,15 @@ var router=express.Router();
   }
 	);
 
+
+	app.get('/login/fail',
+	  function(req, res) {
+	    res.status(401).send('Login failed');
+	  }
+	);
+
 router.get("/metadata",function(req,res){
+	 res.type('application/xml');
  res.render("metadata",{metadata:config.SamlStrategy.generateServiceProviderMetadata()});
 
 });

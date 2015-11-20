@@ -1,4 +1,5 @@
 var RedisStore = require('connect-redis')(require('express-session'));
+var fs = require('fs');
 module.exports = {
 
 	development : {
@@ -7,27 +8,27 @@ module.exports = {
 			port : process.env.PORT || 3000
 		},
 		proxy:{
-			target : "http://localhost:8080"
+			target : process.env.TARGET || "http://localhost:8080"
 		},
 		session:{
-			secret: 'dafasdfasfiajnfkjnk',
+			secret: process.env.SESSION_SECRET || 'dafasdfasfiajnfkjnk',
 			resave:false,
 			saveUninitialized:false,
 			store: new RedisStore({
-  			host: '127.0.0.1',
-  			port: 6379,
-				ttl:300
+  			host: process.env.REDIS_HOST || '127.0.0.1',
+  			port: process.env.REDIS_PORT || 6379,
+				ttl:  process.env.REDIS_TTL || 300
 			})
 		},
 		passport: {
 			strategy : 'saml',
 			saml : {
 				path : '/login/callback',
-				entryPoint : 'https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php',
-				issuer : 'node-saml-proxy',
-        callbackUrl:'http://localhost:3000/login/callback',
+				entryPoint : process.env.IDP_ENDPOINT || 'https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php',
+				issuer : process.env.ISSUER || 'node-saml-proxy',
+        callbackUrl: process.env.CALLBACK_URL || 'http://localhost:3000/login/callback',
 				validateInResponseTo: true,
-				cert : 'MIICizCCAfQCCQCY8tKaMc0BMjANBgkqhkiG9w0BAQUFADCBiTELMAkGA1UEBhMCTk8xEjAQBgNVBAgTCVRyb25kaGVpbTEQMA4GA1UEChMHVU5JTkVUVDEOMAwGA1UECxMFRmVpZGUxGTAXBgNVBAMTEG9wZW5pZHAuZmVpZGUubm8xKTAnBgkqhkiG9w0BCQEWGmFuZHJlYXMuc29sYmVyZ0B1bmluZXR0Lm5vMB4XDTA4MDUwODA5MjI0OFoXDTM1MDkyMzA5MjI0OFowgYkxCzAJBgNVBAYTAk5PMRIwEAYDVQQIEwlUcm9uZGhlaW0xEDAOBgNVBAoTB1VOSU5FVFQxDjAMBgNVBAsTBUZlaWRlMRkwFwYDVQQDExBvcGVuaWRwLmZlaWRlLm5vMSkwJwYJKoZIhvcNAQkBFhphbmRyZWFzLnNvbGJlcmdAdW5pbmV0dC5ubzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAt8jLoqI1VTlxAZ2axiDIThWcAOXdu8KkVUWaN/SooO9O0QQ7KRUjSGKN9JK65AFRDXQkWPAu4HlnO4noYlFSLnYyDxI66LCr71x4lgFJjqLeAvB/GqBqFfIZ3YK/NrhnUqFwZu63nLrZjcUZxNaPjOOSRSDaXpv1kb5k3jOiSGECAwEAATANBgkqhkiG9w0BAQUFAAOBgQBQYj4cAafWaYfjBU2zi1ElwStIaJ5nyp/s/8B8SAPK2T79McMyccP3wSW13LHkmM1jwKe3ACFXBvqGQN0IbcH49hu0FKhYFM/GPDJcIHFBsiyMBXChpye9vBaTNEBCtU3KjjyG0hRT2mAQ9h+bkPmOvlEo/aH0xR68Z9hw4PF13w=='
+				cert : process.env.IDP_CERT || fs.readFileSync(__dirname + '/config/certs/idp_cert.pem', 'utf8')
 			}
 		}
 	}
