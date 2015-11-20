@@ -12,6 +12,7 @@ To configure the proxy and IDP you need to edit the confg/config.js file
 
 ##Session##
 this is a [express-session](https://github.com/expressjs/session) object 
+
 * secret: key to encrypt the cookie and session
 * resave: leave as false
 * saveUninitialized: leave as false
