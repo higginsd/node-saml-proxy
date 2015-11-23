@@ -1,8 +1,6 @@
 node-saml-proxy
 ---
 This is an example of setting up authenticating reverse proxy using SAML.
-It is based off this example [https://github.com/gbraad/passport-saml-example.git
-](https://github.com/gbraad/passport-saml-example.git)
 
 ###Configuration###
 To configure the proxy and IDP you need to edit the confg/config.js file
@@ -12,6 +10,7 @@ To configure the proxy and IDP you need to edit the confg/config.js file
 
 ##Session##
 this is a [express-session](https://github.com/expressjs/session) object 
+
 * secret: key to encrypt the cookie and session
 * resave: leave as false
 * saveUninitialized: leave as false
