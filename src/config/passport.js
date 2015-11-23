@@ -11,12 +11,13 @@ module.exports = function (passport, config) {
 	});
 config.SamlStrategy=new SamlStrategy(
   {
-    path: config.passport.saml.path,
+  //  path: config.passport.saml.path,
     entryPoint: config.passport.saml.entryPoint,
     issuer: config.passport.saml.issuer,
-    callbackUrl: config.passport.callbackUrl,
+    callbackUrl: config.passport.saml.callbackUrl,
 		cert: config.passport.saml.cert,
-		validateInResponseTo: config.passport.saml.validateInResponseTo
+		validateInResponseTo: config.passport.saml.validateInResponseTo,
+		signatureAlgorithm:config.passport.saml.signatureAlgorithm
 
   },
   function(profile, done) {

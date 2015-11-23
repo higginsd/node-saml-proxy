@@ -29,14 +29,14 @@ var router=express.Router();
 	);
 
 
-	app.get('/login/fail',
+	router.get('/login/fail',
 	  function(req, res) {
 	    res.status(401).send('Login failed');
 	  }
 	);
 
 router.get("/metadata",function(req,res){
-	 res.type('application/xml');
+	 //res.type('application/xml');
  res.render("metadata",{metadata:config.SamlStrategy.generateServiceProviderMetadata()});
 
 });

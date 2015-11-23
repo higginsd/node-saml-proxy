@@ -23,12 +23,14 @@ module.exports = {
 		passport: {
 			strategy : 'saml',
 			saml : {
-				path : '/login/callback',
+				host : 'localhost:3000',
+			//	path : '/login/callback',
 				entryPoint : process.env.IDP_ENDPOINT || 'https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php',
 				issuer : process.env.ISSUER || 'node-saml-proxy',
         callbackUrl: process.env.CALLBACK_URL || 'http://localhost:3000/login/callback',
 				validateInResponseTo: true,
-				cert : process.env.IDP_CERT || fs.readFileSync(__dirname + '/config/certs/idp_cert.pem', 'utf8')
+				cert : process.env.IDP_CERT || fs.readFileSync(__dirname + '/certs/idp_cert.pem', 'utf8'),
+				signatureAlgorithm:process.env.IDP_SIGN_ALGORITHM || 'sha1'
 			}
 		}
 	}
