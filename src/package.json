@@ -4,8 +4,7 @@
   "description": "Reverse proxy with saml authentication",
   "author": {
     "name": "Derek Higgins",
-    "email": "derek.higgins@gmail.com",
-    "url": "http://www.derekhiggins.com"
+    "email": "derekhiggins@northwesternmutual.com",
   },
   "keywords": [
     "saml",
