@@ -32,11 +32,14 @@ app.use(methodOverride());
 app.use(require('express-session')(config.session));
 app.use(passport.initialize());
 app.use(passport.session());
-var routes = require('./config/routes')(config,passport,express,log);
+var routes = require('./config/routes')(config,proxy,passport,express,log);
 app.use("",routes);
+
+
+
 app.use(function(req, res) {
   log.info(req);
-proxy.web(req,res,{target:config.proxy.target});
+proxy.web(req,res,{target:config.proxy.target,ignorePath:false});
 });
 //app.use(express.static(__dirname + '/public'));
 

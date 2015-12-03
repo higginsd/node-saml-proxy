@@ -4,7 +4,7 @@ var proxy= httpProxy.createProxyServer({});
 
 proxy.on('proxyReq', function(proxyReq, req, res, options) {
 
-if(req.user.nameID){
+if( typeof req.user !== 'undefined'){
   Object.keys(req.user).forEach(function(key) {
   var val = req.user[key];
   proxyReq.setHeader(key, val );

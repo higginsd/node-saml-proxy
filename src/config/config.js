@@ -8,7 +8,8 @@ module.exports = {
 			port : process.env.PORT || 3000
 		},
 		proxy:{
-			target : process.env.TARGET || "http://localhost:8080"
+			target : process.env.TARGET || "http://localhost:8080",
+			bypassAuth:['/healthcheck','/favicon.ico']
 		},
 		session:{
 			secret: process.env.SESSION_SECRET || 'dafasdfasfiajnfkjnk',

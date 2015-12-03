@@ -12,7 +12,9 @@ app.get("/deep",function(req,res){
 });
     res.send(output);
 });
-
+app.get("/healthcheck", function(req,res){
+  res.send("application alive");
+});
 app.use(function(req, res, next){
   res.status(404);
     res.send("PAGE NOT FOUND");

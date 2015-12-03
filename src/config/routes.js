@@ -1,4 +1,4 @@
-module.exports = function(config, passport,express,log) {
+module.exports = function(config,proxy, passport,express,log) {
 
 var router=express.Router();
 
@@ -46,6 +46,13 @@ router.get("/metadata",function(req,res){
     console.log("logging out");
 		req.logout();
 		res.redirect('/');
+	});
+	
+	config.proxy.bypassAuth.forEach(function(uri){
+	log.info("adding "+uri);
+		router.get(uri,function(req,res){
+	    proxy.web(req,res,{target:config.proxy.target+uri,ignorePath:true});
+	  });
 	});
 
   router.all('/*', function(req, res, next) {
