@@ -4,7 +4,7 @@
   "description": "Reverse proxy with saml authentication",
   "author": {
     "name": "Derek Higgins",
-    "email": "derek.higgins@gmail.com",
+    "email": "derek.higgins@gmail.com"
   },
   "keywords": [
     "saml",
